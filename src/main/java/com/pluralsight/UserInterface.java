@@ -36,19 +36,17 @@ public class UserInterface {
                 case 1:
                     processGetVehicleByPrice();
                     break;
+                case 2:
+                    processGetVehicleByModel();
+                    break;
                 case 99:
                     System.out.println("Exiting...");
                     isRunning = false;
+                    break;
             }
 
         }
 
-
-        //have your switch that calls the methods in the dealship to get the filterd lists
-
-
-        //imagine they selected getAll
-        this.processGetAllVehiclesRequest();
     }
 
     private void init(){
@@ -80,6 +78,17 @@ public class UserInterface {
         //creating the new arrayList to populate so we can display the outputs
         ArrayList<Vehicle> carByPrice = dealership.getVehiclesByPrice(priceMin, priceMax);
         System.out.println(carByPrice + "\n");
+    }
+    public void processGetVehicleByModel(){
+        theScanner.nextLine();
+
+        System.out.println("What Make are you looking for?");
+        String userMake = theScanner.nextLine();;
+        System.out.println("Model?");
+        String userModel = theScanner.nextLine();
+        dealership.getVehicleByModel(userMake, userModel);
+        ArrayList<Vehicle> carByMandM = dealership.getVehicleByModel(userMake, userModel);
+        System.out.println(carByMandM);
     }
 
 

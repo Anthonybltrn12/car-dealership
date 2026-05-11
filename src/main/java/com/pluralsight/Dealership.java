@@ -29,6 +29,15 @@ public class Dealership {
         }
         return carArray;
     }
+    public ArrayList<Vehicle> getVehicleByModel(String userMake,String userModel){
+        ArrayList<Vehicle> carArray = new ArrayList<>();
+        for(Vehicle vehicle : this.inventory){
+            if(userMake.equalsIgnoreCase(vehicle.getMake()) && userModel.equalsIgnoreCase(vehicle.getModel())){
+                carArray.add(vehicle);
+            }
+        }
+        return carArray;
+    }
 
     //return the entire list
     public ArrayList<Vehicle> getAllVehicles(){
