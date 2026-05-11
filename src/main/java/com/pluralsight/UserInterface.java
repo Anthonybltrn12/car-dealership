@@ -39,6 +39,9 @@ public class UserInterface {
                 case 2:
                     processGetVehicleByModel();
                     break;
+                case 4:
+                    processGetVehicleByColor();
+                    break;
                 case 99:
                     System.out.println("Exiting...");
                     isRunning = false;
@@ -93,6 +96,15 @@ public class UserInterface {
         dealership.getVehicleByModel(userMake, userModel);
         ArrayList<Vehicle> carByMandM = dealership.getVehicleByModel(userMake, userModel);
         System.out.println(carByMandM);
+    }
+
+    public void processGetVehicleByColor(){
+        theScanner.nextLine();
+        System.out.println("What color are you looking for?");
+        String userColor = theScanner.nextLine();
+        dealership.getVehicleByColor(userColor);
+        ArrayList<Vehicle> carByColor = dealership.getVehicleByColor(userColor);
+        System.out.println(carByColor);
     }
 
 

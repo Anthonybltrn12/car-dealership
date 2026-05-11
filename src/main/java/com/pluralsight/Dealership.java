@@ -39,6 +39,17 @@ public class Dealership {
         return carArray;
     }
 
+    public ArrayList<Vehicle> getVehicleByColor(String userColor){
+        ArrayList<Vehicle> carArray = new ArrayList<>();
+        for(Vehicle vehicle : this.inventory){
+            if(userColor.equalsIgnoreCase(vehicle.getColor())){
+                carArray.add(vehicle);
+            }
+        }
+
+        return carArray;
+    }
+
     //return the entire list
     public ArrayList<Vehicle> getAllVehicles(){
         return this.inventory;
