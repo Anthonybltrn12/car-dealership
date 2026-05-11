@@ -80,12 +80,16 @@ public class UserInterface {
         System.out.println(carByPrice + "\n");
     }
     public void processGetVehicleByModel(){
+        //eating scanner line since last scanner input was a double
         theScanner.nextLine();
-
+        //asking the user what make and model theyre looking for then storing it in its own variable
+        //to be able to pass to the method that filters through the cars
         System.out.println("What Make are you looking for?");
         String userMake = theScanner.nextLine();;
         System.out.println("Model?");
         String userModel = theScanner.nextLine();
+        //grabbing the method that loops and give it its parameters to be able to have a
+        //search paramater
         dealership.getVehicleByModel(userMake, userModel);
         ArrayList<Vehicle> carByMandM = dealership.getVehicleByModel(userMake, userModel);
         System.out.println(carByMandM);
