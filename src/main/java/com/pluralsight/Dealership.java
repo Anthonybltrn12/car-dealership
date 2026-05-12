@@ -49,6 +49,32 @@ public class Dealership {
 
         return carArray;
     }
+    public ArrayList<Vehicle> getVehicleByYear(int minYear, int maxYear){
+        ArrayList<Vehicle> carArray = new ArrayList<>();
+        for(Vehicle vehicle : this.inventory){
+            if(minYear >= vehicle.getYear() && maxYear <= vehicle.getYear())
+                carArray.add(vehicle);
+        }
+        return carArray;
+    }
+    public ArrayList<Vehicle> getVehicleByMileage(int maxMiles){
+        ArrayList<Vehicle> carArray = new ArrayList<>();
+        for(Vehicle vehicle : this.inventory){
+            if(maxMiles >= vehicle.getOdometer()){
+                carArray.add(vehicle);
+            }
+        }
+        return carArray;
+    }
+    public ArrayList<Vehicle> getVehicleByMileage(int maxMiles, int minMiles){
+        ArrayList<Vehicle> carArray = new ArrayList<>();
+        for(Vehicle vehicle : this.inventory){
+            if(maxMiles <= vehicle.getOdometer() && minMiles >= vehicle.getOdometer()){
+                carArray.add(vehicle);
+            }
+        }
+        return carArray;
+    }
 
     //return the entire list
     public ArrayList<Vehicle> getAllVehicles(){

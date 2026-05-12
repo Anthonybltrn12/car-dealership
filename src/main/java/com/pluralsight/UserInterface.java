@@ -39,8 +39,14 @@ public class UserInterface {
                 case 2:
                     processGetVehicleByModel();
                     break;
+                case 3:
+                    processGetVehicleByYear();
+                    break;
                 case 4:
                     processGetVehicleByColor();
+                    break;
+                case 5:
+                    processGetVehicleByMileage();
                     break;
                 case 99:
                     System.out.println("Exiting...");
@@ -105,6 +111,37 @@ public class UserInterface {
         dealership.getVehicleByColor(userColor);
         ArrayList<Vehicle> carByColor = dealership.getVehicleByColor(userColor);
         System.out.println(carByColor);
+    }
+
+    public void processGetVehicleByYear(){
+        System.out.println("What is the minimum year?");
+        int minYear = theScanner.nextInt();
+        System.out.println("What is the max year?");
+        int maxYear = theScanner.nextInt();
+        dealership.getVehicleByYear(minYear,maxYear);
+        ArrayList<Vehicle> carByYear = dealership.getVehicleByYear(minYear, maxYear);
+        System.out.println(carByYear);
+    }
+
+    public void processGetVehicleByMileage(){
+        System.out.println("What is the maximum mileage?");
+        int maxMiles = theScanner.nextInt();
+        theScanner.nextLine();
+        System.out.println("Would you like to do a minimum mileage?(Y/N)");
+        String userInput = theScanner.nextLine();
+        if(userInput.equalsIgnoreCase("y")){
+            System.out.println("What is the minimum mileage?");
+            int minMiles = theScanner.nextInt();
+            dealership.getVehicleByMileage(minMiles, maxMiles);
+            ArrayList<Vehicle> carByMileage = dealership.getVehicleByMileage(minMiles, maxMiles);
+            System.out.println(carByMileage);
+        }else{
+            dealership.getVehicleByMileage(maxMiles);
+            ArrayList<Vehicle> carByMileage = dealership.getVehicleByMileage(maxMiles);
+            System.out.println(carByMileage);
+        }
+
+
     }
 
 
