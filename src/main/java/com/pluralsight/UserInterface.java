@@ -48,6 +48,9 @@ public class UserInterface {
                 case 5:
                     processGetVehicleByMileage();
                     break;
+                case 6:
+                    processGetVehicleByType();
+                    break;
                 case 99:
                     System.out.println("Exiting...");
                     isRunning = false;
@@ -141,6 +144,15 @@ public class UserInterface {
             System.out.println(carByMileage);
         }
 
+
+    }
+
+    public void processGetVehicleByType(){
+        System.out.println("""
+                What kind of vehicle are you looking for?:
+                (Coupe, Sedan, SUV, Truck, Van)
+                """);
+        String userType = theScanner.nextLine();
 
     }
 
