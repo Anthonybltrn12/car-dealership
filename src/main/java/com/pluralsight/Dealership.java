@@ -78,10 +78,11 @@ public class Dealership {
     public ArrayList<Vehicle> getVehicleByType(String userType){
         ArrayList<Vehicle> carArray = new ArrayList<>();
         for(Vehicle vehicle : this.inventory) {
-            if(userType.equalsIgnoreCase("")){
-                //add if statements for userType variable
+            if(userType.equalsIgnoreCase(vehicle.getVehicleType())){
+                carArray.add(vehicle);
             }
         }
+        return carArray;
     }
 
     //return the entire list

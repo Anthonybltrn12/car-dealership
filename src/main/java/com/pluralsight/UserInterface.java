@@ -51,6 +51,9 @@ public class UserInterface {
                 case 6:
                     processGetVehicleByType();
                     break;
+                case 7:
+                    processGetAllVehiclesRequest();
+                    break;
                 case 99:
                     System.out.println("Exiting...");
                     isRunning = false;
@@ -145,14 +148,19 @@ public class UserInterface {
         }
 
 
+
     }
 
     public void processGetVehicleByType(){
+        theScanner.nextLine();
         System.out.println("""
                 What kind of vehicle are you looking for?:
                 (Coupe, Sedan, SUV, Truck, Van)
                 """);
         String userType = theScanner.nextLine();
+        dealership.getVehicleByType(userType);
+        ArrayList<Vehicle> carByType = dealership.getVehicleByType(userType);
+        System.out.println(carByType);
 
     }
 
