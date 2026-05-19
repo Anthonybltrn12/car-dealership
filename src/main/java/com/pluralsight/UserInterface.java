@@ -54,6 +54,12 @@ public class UserInterface {
                 case 7:
                     processGetAllVehiclesRequest();
                     break;
+                case 8:
+                    addVehicle();
+                    break;
+                case 9:
+                    processRemoveVehicle();
+                    break;
                 case 99:
                     System.out.println("Exiting...");
                     isRunning = false;
@@ -161,6 +167,46 @@ public class UserInterface {
         dealership.getVehicleByType(userType);
         ArrayList<Vehicle> carByType = dealership.getVehicleByType(userType);
         System.out.println(carByType);
+
+    }
+
+    public void addVehicle(){
+        System.out.println("What is the Vin of your car?");
+        int userVin = theScanner.nextInt();
+        System.out.println("What is the year of your car?");
+        int userYear = theScanner.nextInt();
+        theScanner.nextLine();
+        System.out.println("What is the make of your car?");
+        String userMake = theScanner.nextLine();
+        System.out.println("What is the model of your car?");
+        String userModel = theScanner.nextLine();
+        System.out.println("What is the type of vehicle?(Sedan,SUV,etc.");
+        String userType = theScanner.nextLine();
+        System.out.println("What is the color of your car?");
+        String userColor = theScanner.nextLine();
+        System.out.println("What is the mileage on the odometer?");
+        int userMiles = theScanner.nextInt();
+        System.out.println("What is the price of the vehicle?");
+        double userPrice = theScanner.nextDouble();
+        Vehicle newVehicle = new Vehicle(userVin, userYear, userMake, userModel, userType, userColor,userMiles, userPrice);
+        dealership.addVehicle(newVehicle);
+
+    }
+
+    public void processRemoveVehicle(){
+        System.out.println("What is the Vin number of the vehicle you want to remove?");
+        int userVin = theScanner.nextInt();
+        Vehicle removeVehicle = null;
+        for(Vehicle vehicle : dealership.getAllVehicles()){
+            if(vehicle.getVin() == userVin){
+                removeVehicle = vehicle;
+                break;
+            }
+        }
+
+        if(removeVehicle != null){
+            dealership.removeVehicle(removeVehicle);
+        }
 
     }
 

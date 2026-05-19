@@ -1,7 +1,7 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
+import java.util.ArrayList;
 
 public class DealershipFileManager {
 
@@ -72,8 +72,14 @@ public class DealershipFileManager {
     }
 
     //stay empty for now but we will revisit later
-    public void saveDealership(){
-
+    public void saveDealership(Dealership dealership) throws FileNotFoundException {
+        try {
+            ArrayList<Vehicle> carArray = new ArrayList<>();
+            BufferedWriter newWriter = new BufferedWriter(new FileWriter(FILE_PATH));
+            newWriter.write(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone());
+        }catch(Exception e){
+            System.out.println("Dealership was not saved");
+        }
     }
 
 }

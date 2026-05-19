@@ -95,6 +95,16 @@ public class Dealership {
         this.inventory.add(vehicle);
     }
 
+    //remove vehicle based on vin number from the UI
+    public void removeVehicle(Vehicle vehicle){
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).getVin() == vehicle.getVin()) {
+                inventory.remove(i);
+                break;
+            }
+        }
+    }
+
     public String getName() {
         return name;
     }
